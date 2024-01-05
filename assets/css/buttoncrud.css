@@ -1,0 +1,92 @@
+.Btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100px;
+    height: 40px;
+    border: none;
+    padding: 0px 20px;
+    background-color: rgb(168, 38, 255);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 10px;
+    transition-duration: .3s;
+  }
+  
+.svg {
+    width: 16px;
+    position: absolute;
+    right: 0;
+    margin-right: 20px;
+    fill: white;
+    transition-duration: .3s;
+}
+
+.Btn:hover {
+    color: transparent;
+}
+
+.Btn:hover svg {
+    right: 43%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    transition-duration: .3s;
+}
+
+.Btn:active {
+    transform: translate(3px , 3px);
+    transition-duration: .3s;
+    box-shadow: 2px 2px 0px rgb(140, 32, 212);
+}
+
+.svg.add {
+    width: 25px;
+}
+
+.svg.del {
+    width: 19px;
+}
+
+
+.Btn.edit{
+    background-color: #2d88ef;
+}
+
+.Btn.del{
+    background-color: #fa4848;
+}
+
+.Btn.add{
+    background-color: #1fab1f;
+}
+
+.Btn.add.long{
+    width: 120px;
+}
+
+.Btn.generate{
+    width: 150px;
+}
+
+
+.Btn.more{
+    background-color: #0a56b2;
+}
+
+.add_btn{
+    width: max-content;
+    height: max-content;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search_add{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+

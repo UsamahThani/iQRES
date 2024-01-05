@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(https://wallpaperaccess.com/full/343570.jpg) no-repeat;
+}
+
+.navbar{
+    width: 85%;
+    margin: 20px 0 20px 0;
+    padding: 20px 0;
+    display: flex;
+}
+
+.logo{
+    width: 70%;
+    cursor: pointer;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo_campus{
+    display: flex;
+    align-items: flex-start;
+}
+
+.campus{
+    color: #fff;
+}
+
+.wrapper {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    margin: 0 0 50px 0;
+}
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input[type="text"] { 
+    text-transform: uppercase;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+    text-transform: capitalize;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: 15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background: url(https://wallpaperaccess.com/full/343570.jpg) fixed; /* Adjust background sizing for better mobile experience */
+        background-position: 45% 20%;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .navbar {
+        width: max-content; /* Make the navbar span the full width */
+        padding: 0;
+        margin: 20px 0px 20px 0;
+    }
+    
+    .logo_campus{
+        justify-content: center;
+    }
+
+    .logo {
+        width: 50%; /* Adjust logo width for mobile */
+    }
+
+    .wrapper {
+        width: 90%; /* Adjust the wrapper width for mobile */
+        padding: 20px; /* Add more compact padding */
+        box-sizing: border-box; /* Include padding in the width calculation */
+        margin-top: 10%;
+        margin-bottom: 0;
+    }
+
+    .wrapper h1 {
+        font-size: 28px; /* Reduce font size for mobile */
+    }
+
+    .input-box input {
+        padding: 12px 20px; /* Adjust input padding for mobile */
+        font-size: 16px; /* Adjust input font size for mobile */
+    }
+
+    .wrapper .remember-forgot{
+        font-size: 16px;
+    }
+
+    .wrapper .btn{
+        font-size: 16px;
+    }
+    
+}

@@ -1,0 +1,20 @@
+.qr-section {
+    width: 100%;
+}
+
+.qr-section .qr-text {
+    margin-left: 180px;
+}
+
+.qr-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 30px 0;
+}
+
+.qr-container img {
+    width: 30%;
+}
+

@@ -1,0 +1,20 @@
+<?php
+    session_start();
+    include ("function_checkSession.php");
+    include ("function_userSidebar.php");
+    include ("function_profile.php");
+    require "dbconnect.php";
+    checkLogin($_SESSION["userId"]);
+    $_SESSION["userId"];
+    $pageName = "main";
+?>
+
+
+
+<?php adminSidebar($pageName); ?>
+
+
+
+<?php echo rightSection() ?>
+
+

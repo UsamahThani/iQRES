@@ -1,0 +1,138 @@
+<?php
+    session_start();
+    include ("function_checkSession.php");
+    include ("function_userSidebar.php");
+    include ("function_profile.php");
+    require "dbconnect.php";
+    checkLogin($_SESSION["userId"]);
+    $_SESSION["userId"];
+    $pageName = "admin";
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/adminstyle.css">
+    <link rel="stylesheet" href="assets/css/form.css">
+    <link rel="stylesheet" href="assets/css/buttoncrud.css">
+    <link rel="stylesheet" href="assets/css/datepicker.css">
+    <link rel="icon" href="https://i.imgur.com/DnvtJhq.png">
+    <title>Edit Admin | iQReS</title>
+    <style>
+        .input-container input[type="file"] {
+        color: var(--color-white);
+        }
+  </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar Section -->
+        <?php adminSidebar($pageName); ?>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+            <h1>Edit Admin Details</h1>
+            <!-- New Users Section -->
+            <div class="contact">
+                <div class="contact-list">
+                    <h2>Update Admin Details Form</h2>
+                    <div class="add_equip">
+                        <?php
+                            $userID = $_GET["userID"];
+                            
+                            //retrieve user data.
+                            $userSQL = "SELECT * FROM user WHERE userID = '$userID'";
+                            $userResult = mysqli_query($connect, $userSQL);
+
+                            if ($userResult) {
+                                if ($row = mysqli_fetch_array($userResult)) {
+                            
+                        ?>
+                        <div class="img-container" width="100%"> <img src="<?php echo $row["userImg"] ?>" alt="Admin Img"></div>
+                        <form action="function_updateUser.php" method="post" enctype="multipart/form-data">
+                            <div class="input-container">
+                                <input type="text" id="input" required="" autocomplete="off" name="userID" readonly value="<?php echo $row["userID"] ?>">
+                                <label for="input" class="label">Admin ID</label>
+                                <div class="underline"></div>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" id="input"  autocomplete="off" name="userName" value="<?php echo $row["userName"] ?>">
+                                <label for="input" class="label">Full Name</label>
+                                <div class="underline"></div>
+                            </div> 
+                            <div class="input-container">
+                                <input type="password" id="input"  autocomplete="off" name="userPass">
+                                <label for="input" class="label">Password</label>
+                                <div class="underline"></div>
+                            </div> 
+                            <div class="input-container">
+                                <input type="file" id="file input" autocomplete="off" name="userImg">
+                                <label for="input" class="label">Profile Image</label>
+                                <div class="underline"></div>
+                            </div> 
+                            <input type="hidden" name="userType" value="ADMIN">
+                            <div class="submit_btn">
+                                <button type="submit" class="Btn add">Save 
+                                    <svg class="svg add" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"></path></svg>
+                                </button>
+                                <button type="reset" class="Btn del" id="reset">Reset
+                                    <svg class="svg del" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16c1.671 0 3-1.331 3-3s-1.329-3-3-3-3 1.331-3 3 1.329 3 3 3z"></path><path d="M20.817 11.186a8.94 8.94 0 0 0-1.355-3.219 9.053 9.053 0 0 0-2.43-2.43 8.95 8.95 0 0 0-3.219-1.355 9.028 9.028 0 0 0-1.838-.18V2L8 5l3.975 3V6.002c.484-.002.968.044 1.435.14a6.961 6.961 0 0 1 2.502 1.053 7.005 7.005 0 0 1 1.892 1.892A6.967 6.967 0 0 1 19 13a7.032 7.032 0 0 1-.55 2.725 7.11 7.11 0 0 1-.644 1.188 7.2 7.2 0 0 1-.858 1.039 7.028 7.028 0 0 1-3.536 1.907 7.13 7.13 0 0 1-2.822 0 6.961 6.961 0 0 1-2.503-1.054 7.002 7.002 0 0 1-1.89-1.89A6.996 6.996 0 0 1 5 13H3a9.02 9.02 0 0 0 1.539 5.034 9.096 9.096 0 0 0 2.428 2.428A8.95 8.95 0 0 0 12 22a9.09 9.09 0 0 0 1.814-.183 9.014 9.014 0 0 0 3.218-1.355 8.886 8.886 0 0 0 1.331-1.099 9.228 9.228 0 0 0 1.1-1.332A8.952 8.952 0 0 0 21 13a9.09 9.09 0 0 0-.183-1.814z"></path></svg>
+                                </button>
+                            </div>
+                        </form>
+                        <?php
+                                } else {
+                                    echo "No user found with the specified ID.";
+                                }
+                            } else {
+                                echo "Error executing query: " . mysqli_error($connect);
+                            }
+                            
+                        ?>
+                    </div>
+                </div>
+            </div>
+            <!-- End of New Users Section -->
+
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <?php echo rightSection() ?>
+    </div>
+
+    <script src="assets/js/index.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <!-- change the default input type file text color -->
+    <script>
+        const fileInput = document.getElementById('file input');
+        const resetButton = document.getElementById('reset');
+
+        // Function to update the style based on file selection
+        function updateStyle() {
+        if (fileInput.files.length > 0) {
+            fileInput.style.color = 'var(--color-dark)';
+        } else {
+            fileInput.style.color = 'var(--color-white)';
+        }
+        }
+
+        // Event listener for file input change
+        fileInput.addEventListener('change', updateStyle);
+
+        // Event listener for reset button click
+        resetButton.addEventListener('click', function() {
+        // Reset the file input and update the style
+        fileInput.value = '';
+        updateStyle();
+        });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+:root{
+    --color-primary: #6C9BCF;
+    --color-danger: #FF0060;
+    --color-success: #1B9C85;
+    --color-warning: #F7D060;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-dark: #363949;
+    --color-light: #848bc82e;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.dark-mode-variables{
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+.fb-container{
+    border: var(--color-background);
+    background: var(--color-background);
+    width: 90%;
+    border-radius: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.fb-content{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.fb-container.has-reply:hover{
+    border: 2px solid #989898;
+}
+
+.fb-container.no-reply:hover {
+    border: 2px solid #bd1313; /* red color */
+}
+
+.fb-messages{
+    width: 100%;
+    height: auto;
+}
+
+.fb-form{
+    width: 89%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fb-title{
+    display: flex;
+    align-items: center;
+}
+
+.fb-subject{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .fb-container{
+        width: 100%;
+        margin: 10px 0 0 0;
+        padding: 10px 20px 10px 20px;
+    }
+
+    .fb-content{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .fb-content h2, .fb-content h3{
+        font-size: 12px;
+    }
+
+    .fb-num{
+        margin: 0 10px 0 0;
+    }
+
+    .fb-subject{
+        margin: 0 30px 0 0;
+    }
+}
