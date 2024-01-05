@@ -1,3 +1,5 @@
+**Before downloading this file, make sure to replace the "phpqrcode" file in plugins folder!**
+
 **Repository Description: Sport Equipment Management Web App (FYP)**
 
 **Overview:**
