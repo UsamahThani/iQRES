@@ -1,0 +1,1 @@
+This folder is where the temporary qr code image will be stored. Do not delete this folder!
